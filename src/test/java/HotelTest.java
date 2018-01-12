@@ -89,4 +89,14 @@ public class HotelTest {
         clanTowers.checkIn(businessMeeting, cRoom1);
         cRoom1.checkOut(businessMeeting);
     }
+
+    @Test public void whosInThere() {
+        ArrayList<Guest> businessMeeting = new ArrayList<Guest>(Arrays.asList(this.guest1, guest2, guest3, guest4, guest5, guest6));
+        clanTowers.checkIn(businessMeeting, cRoom1);
+        assertEquals(businessMeeting, cRoom1.getOccupants());
+    }
+
+    @Test public void getOccupantsOfEmptyRoom(){
+        assertEquals(new ArrayList<Guest>(), cRoom2.getOccupants());
+    }
 }
