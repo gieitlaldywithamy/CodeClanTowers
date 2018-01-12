@@ -9,7 +9,6 @@ public class Room {
     private final int capacity;
     private ArrayList<Guest> occupants;
 
-
     public Room(int room_capacity) {
         this.capacity = room_capacity;
         this.occupants = new ArrayList<>();
@@ -27,9 +26,19 @@ public class Room {
         return this.occupants.size();
     }
 
-    public void checkInGuest(Guest guest){
+    public void checkIn(Guest guest){
         if (capacity >  occupantCount()){
             this.occupants.add(guest);
         }
+    }
+
+    public void checkIn(ArrayList<Guest> guests) {
+        if (occupantCount()+ guests.size() <= capacity) {
+            this.occupants.addAll(guests);
+        }
+    }
+
+    public boolean isOccupied(){
+        return !this.occupants.isEmpty();
     }
 }

@@ -15,7 +15,7 @@ public class BedroomTest {
     @Before
     public void before(){
         Guest guest1 = new Guest("Mr. ");
-        basic_room = new Bedroom(1, BedroomType.SINGLE, 54.60);
+        basic_room = new Bedroom(1, BedroomType.SINGLE);
     }
 
     @Test
@@ -25,8 +25,8 @@ public class BedroomTest {
 
     @Test
     public void guestCanCheckIn() {
-        Bedroom singleRoom = new Bedroom(2, BedroomType.SINGLE, 60.50);
-        singleRoom.checkInGuest(guest1);
+        Bedroom singleRoom = new Bedroom(2, BedroomType.SINGLE);
+        singleRoom.checkIn(guest1);
     }
 
 }
