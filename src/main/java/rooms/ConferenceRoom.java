@@ -18,4 +18,8 @@ public class ConferenceRoom extends Room {
     public double getCharge() {
         return this.roomCharge;
     }
+
+    public void pretty_print(){
+        System.out.println(this.name  + " " + getCapacity() + " " + this.roomCharge);
+    }
 }

@@ -10,12 +10,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class HotelTest {
 
     Hotel clanTowers;
     ConferenceRoom cRoom1;
     ConferenceRoom cRoom2;
+    ConferenceRoom cRoom3;
+    ConferenceRoom cRoom4;
+    ConferenceRoom cRoom5;
+    ArrayList<Room> rooms;
     Guest guest1;
     Guest guest6;
     Guest guest2;
@@ -29,7 +34,7 @@ public class HotelTest {
 
     @Before
     public void before(){
-        ArrayList<Room> rooms = new ArrayList<Room>();
+        rooms = new ArrayList<Room>();
 
         for (int i = 1; i < 11; i++) {
             Bedroom room;
@@ -43,6 +48,9 @@ public class HotelTest {
 
         cRoom1 = new ConferenceRoom( "Tiananmen Square", 14, 850.30);
         cRoom2 = new ConferenceRoom("Tahirir Square", 5, 240.60);
+        cRoom3 = new ConferenceRoom("Victory Square", 5, 240.60);
+        cRoom4 = new ConferenceRoom("Maastricht", 5, 240.60);
+        cRoom5 = new ConferenceRoom("Garrison", 5, 240.60);
 
         rooms.add(cRoom1);
         rooms.add(cRoom2);
@@ -80,7 +88,20 @@ public class HotelTest {
     public void getOccupiedRooms(){
         ArrayList<Guest> businessMeeting = new ArrayList<Guest>(Arrays.asList(this.guest1, guest2, guest3, guest4, guest5, guest6));
         clanTowers.checkIn(businessMeeting, cRoom1);
-        System.out.println(clanTowers.getOccupiedRooms());
+        System.out.println(clanTowers.getOccupiedConferenceRooms());
+    }
+
+    @Test
+    public void checkOut(){
+        guest2.checkIn(rooms.get(2));
+        rooms.get(2).checkOut(guest2);
+
+    }
+
+    @Test
+    public void findGuest(){
+        guest2.checkIn(rooms.get(2));
+        assertEquals(rooms.get(2), clanTowers.findGuest(guest2));
     }
 
     @Test
@@ -99,4 +120,26 @@ public class HotelTest {
     @Test public void getOccupantsOfEmptyRoom(){
         assertEquals(new ArrayList<Guest>(), cRoom2.getOccupants());
     }
+
+    @Test public void sortConferenceRooms() {
+        for (ConferenceRoom room: clanTowers.sortConferenceRooms(clanTowers.getConferenceRooms())) {
+            room.pretty_print();
+        }
+
+    }
+
+    @Test public void getMostExpensiveRoom() {
+        ArrayList<Guest> businessMeeting = new ArrayList<Guest>(Arrays.asList(this.guest1, guest2, guest3, guest4));
+        clanTowers.findExpensiveConferenceRoom(businessMeeting).pretty_print();
+    }
+
+//    @Test
+//    public void hotelChecksInCouple(){
+//        ArrayList<Guest> family = new ArrayList<>();
+//        family.add(guest2);
+//        family.add(guest3);
+//        family.add(guest1);
+//        Bedroom familyBedroom = clanTowers.findSuitableBedroom(family);
+//
+//    }
 }

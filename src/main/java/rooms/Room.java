@@ -32,6 +32,10 @@ public class Room {
         }
     }
 
+    public boolean enoughSpace(ArrayList<Guest> guests){
+        return occupantCount()+ guests.size() <= capacity;
+    }
+
     public void checkIn(ArrayList<Guest> guests) {
         if (occupantCount()+ guests.size() <= capacity) {
             this.occupants.addAll(guests);
@@ -45,11 +49,15 @@ public class Room {
     public void checkOut(ArrayList<Guest> guests) {
         //assuming that all room guests will check out at once
         for (Guest guest: guests) {
-            if (guests.contains(guest)) {
+
                 this.occupants.remove(guest);
-            }
+
         }
 
 
+    }
+
+    public void checkOut(Guest guest) {
+        this.occupants.remove(guest);
     }
 }
