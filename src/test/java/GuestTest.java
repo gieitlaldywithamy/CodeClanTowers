@@ -1,6 +1,8 @@
 import guests.Guest;
 import org.junit.Before;
 import org.junit.Test;
+import rooms.Bedroom;
+import rooms.BedroomType;
 
 import static org.junit.Assert.assertEquals;
 
@@ -17,4 +19,6 @@ public class GuestTest {
     public void guestHasName() {
         assertEquals("Mr.", soloBusinessMan.getName());
     }
+
+
 }

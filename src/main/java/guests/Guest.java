@@ -1,5 +1,7 @@
 package guests;
 
+import rooms.Bedroom;
+
 public class Guest {
 
     String name;
@@ -11,4 +13,5 @@ public class Guest {
     public String getName() {
         return this.name;
     }
+
 }

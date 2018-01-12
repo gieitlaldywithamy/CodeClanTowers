@@ -22,4 +22,14 @@ public class Room {
     public ArrayList<Guest> getOccupants(){
         return this.occupants;
     }
+
+    private int occupantCount(){
+        return this.occupants.size();
+    }
+
+    public void checkInGuest(Guest guest){
+        if (capacity >  occupantCount()){
+            this.occupants.add(guest);
+        }
+    }
 }

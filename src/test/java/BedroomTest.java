@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 public class BedroomTest {
 
     Bedroom basic_room;
-    Guest guests;
+    Guest guest1;
 
 
     @Before
@@ -21,6 +21,12 @@ public class BedroomTest {
     @Test
     public void bedroomIsSingle() {
         assertEquals(1, basic_room.getCapacity());
+    }
+
+    @Test
+    public void guestCanCheckIn() {
+        Bedroom singleRoom = new Bedroom(2, BedroomType.SINGLE, 60.50);
+        singleRoom.checkInGuest(guest1);
     }
 
 }
