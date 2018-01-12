@@ -133,13 +133,26 @@ public class HotelTest {
         clanTowers.findExpensiveConferenceRoom(businessMeeting).pretty_print();
     }
 
-//    @Test
-//    public void hotelChecksInCouple(){
-//        ArrayList<Guest> family = new ArrayList<>();
-//        family.add(guest2);
-//        family.add(guest3);
-//        family.add(guest1);
-//        Bedroom familyBedroom = clanTowers.findSuitableBedroom(family);
-//
-//    }
+    @Test public void getUnOccupiedBedrooms(){
+        ArrayList<Guest> guests = new ArrayList<>();
+        guests.add(guest3);
+        guests.add(guest4);
+        guests.add(guest6);
+
+        clanTowers.checkIn(guests);
+    }
+
+    @Test
+    public void hotelChecksInCouple(){
+        ArrayList<Guest> family = new ArrayList<>();
+        family.add(guest2);
+        family.add(guest3);
+        family.add(guest1);
+        clanTowers.checkIn(family);
+        clanTowers.findGuest(guest1);
+        clanTowers.findGuest(guest2);
+        clanTowers.findGuest(guest3);
+
+
+    }
 }

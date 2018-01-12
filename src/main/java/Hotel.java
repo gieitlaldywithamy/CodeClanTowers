@@ -124,10 +124,32 @@ public class Hotel {
 
         for (Room hotel_room: this.rooms ){
             if (hotel_room.getOccupants().contains(guest)) {
+                System.out.println(guest + " is in " + hotel_room);
                 return hotel_room;
             }
         }
 
         return room;
+    }
+
+    public boolean checkIn(ArrayList<Guest> guests) {
+
+        for (Bedroom emptyBedroom: availableBedrooms()){
+
+            if (emptyBedroom.enoughSpace(guests)){
+                emptyBedroom.checkIn(guests);
+                System.out.println("All checked into one room");
+                return true;
+            } else {
+                while (emptyBedroom.getCapacity() > emptyBedroom.occupantCount()){
+                    Guest guest = guests.remove(0);
+                    emptyBedroom.checkIn(guest);
+                }
+                System.out.println("Checked into multiple rooms");
+
+            }
+        }
+
+        return false;
     }
 }

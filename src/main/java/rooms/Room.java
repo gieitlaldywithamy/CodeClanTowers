@@ -22,7 +22,7 @@ public class Room {
         return this.occupants;
     }
 
-    private int occupantCount(){
+    public int occupantCount(){
         return this.occupants.size();
     }
 
@@ -47,7 +47,7 @@ public class Room {
     }
 
     public void checkOut(ArrayList<Guest> guests) {
-        //assuming that all room guests will check out at once
+
         for (Guest guest: guests) {
 
                 this.occupants.remove(guest);
