@@ -41,4 +41,15 @@ public class Room {
     public boolean isOccupied(){
         return !this.occupants.isEmpty();
     }
+
+    public void checkOut(ArrayList<Guest> guests) {
+        //assuming that all room guests will check out at once
+        for (Guest guest: guests) {
+            if (guests.contains(guest)) {
+                this.occupants.remove(guest);
+            }
+        }
+
+
+    }
 }

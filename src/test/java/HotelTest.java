@@ -78,6 +78,15 @@ public class HotelTest {
 
     @Test
     public void getOccupiedRooms(){
+        ArrayList<Guest> businessMeeting = new ArrayList<Guest>(Arrays.asList(this.guest1, guest2, guest3, guest4, guest5, guest6));
+        clanTowers.checkIn(businessMeeting, cRoom1);
         System.out.println(clanTowers.getOccupiedRooms());
+    }
+
+    @Test
+    public void checkOutGuests() {
+        ArrayList<Guest> businessMeeting = new ArrayList<Guest>(Arrays.asList(this.guest1, guest2, guest3, guest4, guest5, guest6));
+        clanTowers.checkIn(businessMeeting, cRoom1);
+        cRoom1.checkOut(businessMeeting);
     }
 }
