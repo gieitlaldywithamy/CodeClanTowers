@@ -1,18 +1,25 @@
 package rooms;
 
+import guests.Guest;
+
 import java.util.ArrayList;
 
 public class Room {
 
-    int capacity;
-    ArrayList<Guest> occupants;
+    private final int capacity;
+    private ArrayList<Guest> occupants;
 
 
     public Room(int room_capacity) {
         this.capacity = room_capacity;
+        this.occupants = new ArrayList<>();
     }
 
     public int getCapacity() {
-        return capacity;
+        return this.capacity;
+    }
+
+    public ArrayList<Guest> getOccupants(){
+        return this.occupants;
     }
 }
