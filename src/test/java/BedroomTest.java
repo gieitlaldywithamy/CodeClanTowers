@@ -14,7 +14,7 @@ public class BedroomTest {
 
     @Before
     public void before(){
-        Guest guest1 = new Guest("Mr. ");
+        Guest guest1 = new Guest("Mr. ", 60);
         basic_room = new Bedroom(1, BedroomType.SINGLE);
     }
 
@@ -23,10 +23,5 @@ public class BedroomTest {
         assertEquals(1, basic_room.getCapacity());
     }
 
-    @Test
-    public void guestCanCheckIn() {
-        Bedroom singleRoom = new Bedroom(2, BedroomType.SINGLE);
-        singleRoom.checkIn(guest1);
-    }
 
 }

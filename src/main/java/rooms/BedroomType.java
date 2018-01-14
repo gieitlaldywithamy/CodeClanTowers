@@ -19,4 +19,6 @@ public enum BedroomType {
     public double getCharge() {
         return charge;
     }
+
+
 }

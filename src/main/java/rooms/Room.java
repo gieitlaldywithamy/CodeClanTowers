@@ -6,8 +6,9 @@ import java.util.ArrayList;
 
 public class Room {
 
-    private final int capacity;
-    private ArrayList<Guest> occupants;
+    protected final int capacity;
+    protected ArrayList<Guest> occupants;
+
 
     public Room(int room_capacity) {
         this.capacity = room_capacity;
@@ -18,6 +19,7 @@ public class Room {
         return this.capacity;
     }
 
+
     public ArrayList<Guest> getOccupants(){
         return this.occupants;
     }
@@ -26,10 +28,8 @@ public class Room {
         return this.occupants.size();
     }
 
-    public void checkIn(Guest guest){
-        if (capacity >  occupantCount()){
-            this.occupants.add(guest);
-        }
+    public void checkIn(Guest guest) {
+        this.occupants.add(guest);
     }
 
     public boolean enoughSpace(ArrayList<Guest> guests){
@@ -59,5 +59,9 @@ public class Room {
 
     public void checkOut(Guest guest) {
         this.occupants.remove(guest);
+    }
+
+    public boolean isFull() {
+        return occupantCount() >= this.capacity;
     }
 }

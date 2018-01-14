@@ -12,12 +12,18 @@ public class GuestTest {
 
     @Before
     public void before() {
-        soloBusinessMan = new Guest("Mr.");
+        soloBusinessMan = new Guest("Mr.", 40);
     }
 
     @Test
     public void guestHasName() {
         assertEquals("Mr.", soloBusinessMan.getName());
+    }
+
+    @Test
+    public void guestPay() {
+        soloBusinessMan.pay(20.50);
+        assertEquals(19.5, soloBusinessMan.getWallet(), 0.01 );
     }
 
 

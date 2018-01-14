@@ -1,5 +1,7 @@
 package rooms;
 
+import guests.Guest;
+
 public class Bedroom extends Room {
 
     private final int room_number;
@@ -14,4 +16,17 @@ public class Bedroom extends Room {
         this.roomCharge = type.getCharge();
 
     }
+
+    public int getRoomNumber() {
+        return this.room_number;
+    }
+
+    public double getNightRate() {
+        return this.roomCharge;
+    }
+
+    public BedroomType getRoomType(){
+        return this.type;
+    }
+
 }

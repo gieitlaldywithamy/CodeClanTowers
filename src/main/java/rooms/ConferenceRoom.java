@@ -3,12 +3,12 @@ package rooms;
 public class ConferenceRoom extends Room {
 
     final String name;
-    final double roomCharge;
+    final double dailyRate;
 
-    public ConferenceRoom(String name, int room_capacity, double roomCharge) {
+    public ConferenceRoom(String name, int room_capacity, double dailyRate) {
         super(room_capacity);
         this.name = name;
-        this.roomCharge = roomCharge;
+        this.dailyRate = dailyRate;
     }
 
     public String getName() {
@@ -16,10 +16,10 @@ public class ConferenceRoom extends Room {
     }
 
     public double getCharge() {
-        return this.roomCharge;
+        return this.dailyRate;
     }
 
     public void pretty_print(){
-        System.out.println(this.name  + " " + getCapacity() + " " + this.roomCharge);
+        System.out.println(this.name  + " " + getCapacity() + " " + this.dailyRate);
     }
 }
